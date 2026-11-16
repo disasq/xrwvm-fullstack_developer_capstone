@@ -1,0 +1,31 @@
+name: Capstone CI
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Python dependencies
+        run: pip install -r server/requirements.txt ruff
+      - name: Lint Python
+        run: ruff check server/djangoapp server/djangoproj --select E9,F63,F7,F82
+      - name: Check Express syntax
+        run: node --check server/database/app.js
+      - name: Install React dependencies
+        working-directory: server/frontend
+        run: npm ci
+      - name: Build React frontend
+        working-directory: server/frontend
+        run: CI=false npm run build
+      - name: Check Django configuration
+        working-directory: server
+        run: python manage.py check
+      - name: Run Django tests
+        working-directory: server
+        run: python manage.py test
