@@ -1,10 +1,8 @@
-from pathlib import Path
 from flask import Flask, jsonify
-from nltk.sentiment import SentimentIntensityAnalyzer
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 app = Flask(__name__)
-lexicon = Path(__file__).parent / 'sentiment/vader_lexicon.zip'
-sia = SentimentIntensityAnalyzer(lexicon_file=f'{lexicon}/vader_lexicon/vader_lexicon.txt')
+sia = SentimentIntensityAnalyzer()
 
 
 @app.get('/')
