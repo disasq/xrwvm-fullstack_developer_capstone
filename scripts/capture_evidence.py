@@ -17,7 +17,7 @@ def capture(name, args):
     command = ['curl', '-sS', '--fail-with-body', *args]
     result = subprocess.run(command, capture_output=True, text=True, check=True)
     body = result.stdout
-    text = '$ ' + shlex.join(command).replace(password, '${DEMO_PASSWORD}') + '\n' + body + '\n'
+    text = '$ ' + shlex.join(command).replace(password, "'\"${DEMO_PASSWORD}\"'") + '\n' + body + '\n'
     (out / name).write_text(text)
     print(f'{name}: captured {len(body)} characters')
 

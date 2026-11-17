@@ -1,0 +1,14 @@
+{
+  "admin_login.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/admin/",
+  "admin_logout.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/admin/logout/",
+  "get_dealers.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/",
+  "get_dealers_loggedin.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/",
+  "dealersbystate.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/?state=Kansas",
+  "dealer_id_reviews.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/dealer/15",
+  "dealership_review_submission.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/postreview/1",
+  "added_review.png": "https://donnaleez800-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/dealer/1",
+  "deployed_landingpage.png": "https://donnaleez800-8003.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/",
+  "deployed_loggedin.png": "https://donnaleez800-8003.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/",
+  "deployed_dealer_detail.png": "https://donnaleez800-8003.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/dealer/15",
+  "deployed_add_review.png": "https://donnaleez800-8003.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/dealer/1"
+}

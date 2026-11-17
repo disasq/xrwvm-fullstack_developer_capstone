@@ -1,0 +1,2 @@
+$ curl -sS --fail-with-body -b /tmp/capstone-evidence-cookies http://localhost:8000/djangoapp/logout
+{"status": "Logged out"}

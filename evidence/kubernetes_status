@@ -1,0 +1,8 @@
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/dealership   1/1     1            1           14m
+
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/dealership-5c4c6d9b4b-p4nxc   4/4     Running   0          3m55s
+
+NAME                 TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)    AGE
+service/dealership   ClusterIP   172.21.163.182   <none>        8000/TCP   14m
