@@ -31,7 +31,7 @@ capture('loginuser', ['-c', cookies, '-X', 'POST', base + '/djangoapp/login',
                       '-H', 'Content-Type: application/json',
                       '-d', json.dumps({'userName': user, 'password': password})])
 capture('logoutuser', ['-b', cookies, base + '/djangoapp/logout'])
-for name, endpoint in [('getdealerreviews', '/djangoapp/reviews/dealer/1'),
+for name, endpoint in [('getdealerreviews', '/djangoapp/reviews/dealer/15'),
                        ('getalldealers', '/djangoapp/get_dealers'),
                        ('getdealerbyid', '/djangoapp/dealer/1'),
                        ('getdealersbyState', '/djangoapp/get_dealers/Kansas'),

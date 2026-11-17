@@ -29,7 +29,9 @@ SECRET_KEY =\
 DEBUG = os.getenv('DJANGO_DEBUG', '1') == '1'
 
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1,.labs.cognitiveclass.ai,.skills.network').split(',')
-CSRF_TRUSTED_ORIGINS = []
+CSRF_TRUSTED_ORIGINS = [origin.strip() for origin in
+                        os.getenv('DJANGO_CSRF_TRUSTED_ORIGINS', '').split(',')
+                        if origin.strip()]
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
@@ -84,7 +86,7 @@ WSGI_APPLICATION = 'djangoproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.getenv('DJANGO_DATABASE_PATH', str(BASE_DIR / 'db.sqlite3')),
     }
 }
 

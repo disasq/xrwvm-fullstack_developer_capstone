@@ -20,6 +20,10 @@ services:
       sentiment_analyzer_url: http://sentiment:5050
       DJANGO_ALLOWED_HOSTS: ${DJANGO_ALLOWED_HOSTS:-localhost,127.0.0.1}
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY:-local-development-only-change-before-deployment}
+      DJANGO_CSRF_TRUSTED_ORIGINS: ${DJANGO_CSRF_TRUSTED_ORIGINS:-}
+      DJANGO_DATABASE_PATH: /data/db.sqlite3
+    volumes: [django_data:/data]
     depends_on: [api, sentiment]
 volumes:
   mongo_data:
+  django_data:
