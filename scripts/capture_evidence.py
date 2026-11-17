@@ -16,10 +16,7 @@ cookies = '/tmp/capstone-evidence-cookies'
 def capture(name, args):
     command = ['curl', '-sS', '--fail-with-body', *args]
     result = subprocess.run(command, capture_output=True, text=True, check=True)
-    try:
-        body = json.dumps(json.loads(result.stdout), indent=2, ensure_ascii=False)
-    except json.JSONDecodeError:
-        body = result.stdout
+    body = result.stdout
     text = '$ ' + shlex.join(command).replace(password, '${DEMO_PASSWORD}') + '\n' + body + '\n'
     (out / name).write_text(text)
     print(f'{name}: captured {len(body)} characters')
@@ -40,8 +37,9 @@ for name, endpoint in [('getdealerreviews', '/djangoapp/reviews/dealer/1'),
                        ('getdealersbyState', '/djangoapp/get_dealers/Kansas'),
                        ('getallcarmakes', '/djangoapp/get_cars')]:
     capture(name, [base + endpoint])
-capture('analyzereview', ['http://localhost:5050/analyze/Fantastic%20services'])
-run_id = '43806184116'
+sentiment = os.environ.get('SENTIMENT_URL', 'http://localhost:5050').rstrip('/')
+capture('analyzereview', [sentiment + '/analyze/Fantastic%20services'])
+run_id = os.environ.get('CI_RUN_ID', '43860613692')
 api_url = f'https://api.github.com/repos/disasq/xrwvm-fullstack_developer_capstone/actions/runs/{run_id}/jobs'
 command = ['curl', '-fsSL', api_url]
 result = subprocess.run(command, capture_output=True, text=True, check=True)
